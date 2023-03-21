@@ -1,11 +1,14 @@
 import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react'
-import  { Users } from './types'
+import { Users } from './types'
+import  app  from '../../configs/firebase'
 
 //тут динамическая страница делает запрос в useEffect (рендер на стороне клиента)
 export default function Id() {
   const { query: { id } } = useRouter()
   const [data, setData] = useState<Users>()
+
+  console.log('app-->', app)
 
     useEffect(() => {
     const dataFetch = async () => {
